@@ -1,21 +1,23 @@
-import Options from "../components/Options.svelte";
+import LoginToGoogle from "../components/LoginToGoogle.svelte";
 import { storage } from "../storage";
 import "../tailwind.css";
 
 // Action popup
 // https://developer.chrome.com/docs/extensions/reference/action/
 
-function render() {
-    const target = document.getElementById("app");
+async function render() {
+  const target = document.getElementById("app");
 
-    if (target) {
-        storage.get().then(({ count }) => {
-            new Options({
-                target,
-                props: { count },
-            });
-        });
-    }
+  const {storage_token} = await storage.get()
+
+  if (target) {
+    new LoginToGoogle({
+      target,
+      props: { storage_token },
+    });
+
+  }
+
 }
 
 document.addEventListener("DOMContentLoaded", render);

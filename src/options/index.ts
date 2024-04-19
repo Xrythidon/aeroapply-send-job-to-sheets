@@ -1,21 +1,24 @@
-import Options from "../components/Options.svelte";
+import LoginToGoogle from "../components/LoginToGoogle.svelte";
+import Options from "../pages/Options.svelte";
 import { storage } from "../storage";
 import "../tailwind.css";
 
 // Options
 // https://developer.chrome.com/docs/extensions/mv3/options/
 
-function render() {
-    const target = document.getElementById("app");
+async function render() {
+  const target = document.getElementById("app");
 
-    if (target) {
-        storage.get().then(({ count }) => {
-            new Options({
-                target,
-                props: { count },
-            });
-        });
-    }
+  const {storage_token} = await storage.get()
+
+  if (target) {
+    new Options({
+      target,
+      props: { storage_token },
+    });
+
+  }
+
 }
 
 document.addEventListener("DOMContentLoaded", render);
