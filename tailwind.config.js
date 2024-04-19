@@ -2,7 +2,14 @@
 export default {
     content: ["./src/**/*.{svelte,js,ts,jsx,tsx}"],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'aero-apply-blue': '#23a566'
+            },
+            fontFamily: {
+                poppins: ['Poppins', 'sans-serif'],
+            }
+        },
     },
     plugins: [],
     // HACK: HMR doesn't work for Tailwind classes in content scripts
