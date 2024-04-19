@@ -1,9 +1,11 @@
 type IStorage = {
-    count: number;
+    storage_token: string | undefined
+    storage_sheet_id: string | undefined
 };
 
 const defaultStorage: IStorage = {
-    count: 0,
+    storage_token: undefined,
+    storage_sheet_id: undefined
 };
 
 export const storage = {
