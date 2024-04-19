@@ -25,7 +25,7 @@ export default defineManifest(async (env) => ({
     content_scripts: [
         {
             matches: ["https://*/*"],
-            js: ["src/content/index.ts"],
+            js: ["src/content/index.ts"]
         },
     ],
     background: {
@@ -47,5 +47,5 @@ export default defineManifest(async (env) => ({
             "128": "src/assets/icons/icon-128.png",
         },
     },
-    permissions: ["storage", "sidePanel"] as chrome.runtime.ManifestPermissions[],
+    permissions: ["storage", "sidePanel", "webNavigation", "activeTab", "tabs"] as chrome.runtime.ManifestPermissions[],
 }));
