@@ -27,8 +27,7 @@ export default defineManifest(async (env) => {
       "128": "src/assets/icons/icon-128.png",
     },
     oauth2: {
-      //@ts-ignore
-      client_id: env.VITE_GOOGLE_CLIENT_ID,
+      client_id: process.env.VITE_GOOGLE_CLIENT_ID!,
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     },
     content_scripts: [
