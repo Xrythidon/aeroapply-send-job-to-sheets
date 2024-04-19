@@ -61,6 +61,7 @@ export default defineManifest(async (env) => {
       "webNavigation",
       "activeTab",
       "tabs",
+      "identity"
     ] as chrome.runtime.ManifestPermissions[],
   };
 });
